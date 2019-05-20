@@ -1,17 +1,17 @@
 const data = {
-    "Рыбы": {
-        "Форель": {},
-        "Щука": {}
+    'Рыбы': {
+        'Форель': {},
+        'Щука': {}
     },
 
-    "Деревья": {
-        "Хвойные": {
-            "Лиственница": {},
-            "Ель": {}
+    'Деревья': {
+        'Хвойные': {
+            'Лиственница': {},
+            'Ель': {}
         },
-        "Цветковые": {
-            "Берёза": {},
-            "Тополь": {}
+        'Цветковые': {
+            'Берёза': {},
+            'Тополь': {}
         }
     }
 };
@@ -22,11 +22,11 @@ function createTree(container, data) {
 }
 
 function getTree(obj) {
-    if (typeof (obj) === 'object'){
+    if (Object.keys(obj).length !== 0){
         const ul = document.createElement('ul');
         Object.keys(obj).forEach((item) => {
             const li = document.createElement('li');
-            li.innerHTML = item;
+            li.innerText = item;
             const childrenUl = getTree(obj[item]);
             if (childrenUl) {
                 li.appendChild(childrenUl);
@@ -34,8 +34,6 @@ function getTree(obj) {
             ul.appendChild(li);
         });
         return ul;
-    } else {
-        return;
     }
 }
 
